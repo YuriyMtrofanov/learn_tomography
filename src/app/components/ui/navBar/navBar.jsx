@@ -3,17 +3,17 @@ import "./navBar.css";
 
 const NavBar = () => {
     return (
-        <nav class="nav">
-            <div class="nav__wrapper">
-                <div class="nav__content">
-                    <ul class="nav__block">
-                        <li class="logo">Logo</li>
-                        <li class="nav__link">Main</li>
-                        <li class="nav__link">Learn</li>
-                        <li class="nav__link">Tests</li>
+        <nav className="nav">
+            <div className="nav__wrapper">
+                <div className="nav__content">
+                    <ul className="nav__block">
+                        <li className="logo">Logo</li>
+                        <li className="nav__link">Main</li>
+                        <li className="nav__link">Learn</li>
+                        <li className="nav__link">Tests</li>
                     </ul>
-                    <ul class="nav__login">
-                        <li class="nav__link login">Login</li>
+                    <ul className="nav__login">
+                        <li className="nav__link login">Login</li>
                     </ul>
                 </div>
             </div>
