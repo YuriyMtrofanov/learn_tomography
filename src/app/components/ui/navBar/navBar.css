@@ -19,7 +19,6 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    /* color: beige; */
     font-family: Gothic A1, sans-serif;
     font-size: medium;
     background-color: rgb(46, 117, 183);
@@ -64,8 +63,8 @@
 .nav__link {
     display: flex;
     height: 5vh;
-    padding-left: 3vw;
-    padding-right: 3vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     align-items: center;
     cursor: pointer;
     color: beige;
