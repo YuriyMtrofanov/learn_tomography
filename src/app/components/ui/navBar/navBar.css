@@ -19,7 +19,7 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    color: beige;
+    /* color: beige; */
     font-family: Gothic A1, sans-serif;
     font-size: medium;
     background-color: rgb(46, 117, 183);
@@ -68,6 +68,8 @@
     padding-right: 3vw;
     align-items: center;
     cursor: pointer;
+    color: beige;
+    text-decoration: none;
     /* border: rgb(56, 16, 175) solid */
 }
 
