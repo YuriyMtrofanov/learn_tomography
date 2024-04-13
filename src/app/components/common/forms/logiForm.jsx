@@ -29,20 +29,16 @@ const LoginForm = () => {
                 <h1>Вход в систему</h1>
                 <TextField
                     name="email"
-                    label="Введите e-mail"
+                    label="Введите электронную почту"
                     placeholder="e-mail@example.com"
                     onChange={handleChange}
                 />
                 <TextField
                     name="password"
-                    label="Введите password"
+                    label="Введите пароль"
                     placeholder="password"
                     onChange={handleChange}
                 />
-                {/* <button
-                    type="submit"
-                    className=""
-                >Submit</button> */}
                 <Button
                     type="submit"
                     label="submit"
