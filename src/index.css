@@ -59,7 +59,7 @@ body {
 .main__body {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   height: 130vh;
   background-color: rgb(186, 220, 251);
   /* border: rgb(111, 1, 117) solid; */
@@ -84,4 +84,16 @@ body {
 .footer_info {
   margin: 10px;
   /* border: rgb(230, 3, 21) solid; */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(54, 54, 54);
+}
+
+.login-form p {
+  cursor: pointer;
 }

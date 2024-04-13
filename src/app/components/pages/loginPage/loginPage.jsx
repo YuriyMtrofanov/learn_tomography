@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoginForm from "../../common/forms/logiForm";
 import RegisterForm from "../../common/forms/registerForm";
+import PageFooter from "../../ui/pageFooter";
 
 const LoginPage = () => {
     const [type, setType] = useState("login");
@@ -19,26 +20,20 @@ const LoginPage = () => {
                             ? (
                                 <div className="login-form">
                                     <LoginForm/>
-                                    <p onClick={handleChangeType}>Войти в ситему</p>
+                                    <p onClick={handleChangeType}>Зарегистрироваться</p>
                                 </div>
                             )
                             : (
                                 <div className="login-form">
                                     <RegisterForm/>
-                                    <p onClick={handleChangeType}>Зарегистрироваться</p>
+                                    <p onClick={handleChangeType}>Войти в ситему</p>
                                 </div>
                             )
                         }
                     </div>
                 </div>
             </div>
-            <div className="main__footer">
-                <div className="footer_content">
-                    <div className="footer_info">
-                        <p>Created by Mitrofanov Yuriy</p>
-                    </div>
-                </div>
-            </div>
+            <PageFooter/>
         </>
     );
 };
