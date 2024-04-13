@@ -20,13 +20,13 @@ const LoginPage = () => {
                             ? (
                                 <div className="login-form">
                                     <LoginForm/>
-                                    <p onClick={handleChangeType}>Зарегистрироваться</p>
+                                    <p onClick={handleChangeType}>Создать аккаунт</p>
                                 </div>
                             )
                             : (
                                 <div className="login-form">
                                     <RegisterForm/>
-                                    <p onClick={handleChangeType}>Войти в ситему</p>
+                                    <p onClick={handleChangeType}>Уже есть аккаунт?</p>
                                 </div>
                             )
                         }

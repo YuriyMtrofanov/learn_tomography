@@ -2,7 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./textField.css";
 
-const TextField = ({ name, label, description, placeholder }) => {
+const TextField = ({ name, label, description, placeholder, onChange }) => {
+    const handleChange = ({ target }) => {
+        onChange({
+            name: target.name,
+            value: target.value
+        });
+    };
     return (
         <div className="text-field">
             <div className="text-field__container">
@@ -18,6 +24,7 @@ const TextField = ({ name, label, description, placeholder }) => {
                     type="text"
                     className="text-field__input"
                     placeholder={placeholder}
+                    onChange={handleChange}
                     aria-describedby="help"
                 />
                 <div className="text-field__description">{description}</div>
@@ -30,7 +37,8 @@ TextField.propTypes = {
     name: PropTypes.string,
     label: PropTypes.string,
     description: PropTypes.string,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func
 };
 
 export default TextField;

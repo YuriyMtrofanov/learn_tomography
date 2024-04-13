@@ -1,22 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "../inputs/textField";
+import Button from "../../ui/button/button";
+
 const LoginForm = () => {
-    const handleSubmit = () => {
-        console.log("submited");
+    const initialData = {
+        email: "",
+        password: ""
     };
+    const [inputData, setInputData] = useState(initialData);
+    const handleChange = (target) => {
+        setInputData(prevState => ({
+            ...prevState,
+            [target.name]: target.value
+        }));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const outputDta = {
+            ...inputData
+        };
+        console.log("outputDta", outputDta);
+    };
+
     return (
         <form onSubmit = {handleSubmit}>
             <div className="login-form__container">
                 <h1>Вход в систему</h1>
                 <TextField
-                    name="e-mail"
+                    name="email"
                     label="Введите e-mail"
-                    placeholder="e-mail"
+                    placeholder="e-mail@example.com"
+                    onChange={handleChange}
                 />
                 <TextField
                     name="password"
                     label="Введите password"
                     placeholder="password"
+                    onChange={handleChange}
+                />
+                {/* <button
+                    type="submit"
+                    className=""
+                >Submit</button> */}
+                <Button
+                    type="submit"
+                    label="submit"
+                    className="submit-button"
                 />
             </div>
         </form>
