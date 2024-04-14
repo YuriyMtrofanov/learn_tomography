@@ -97,3 +97,7 @@ body {
 .login-form p {
   cursor: pointer;
 }
+
+.login-form p:hover {
+  font-weight: bold;
+}

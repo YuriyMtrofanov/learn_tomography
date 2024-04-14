@@ -8,26 +8,28 @@ const RadioField = ({ name, label, onChange, options, value }) => {
     };
     return (
         <div className="radio-field">
-            <label className="radio-field__label">{label}</label>
-            {options.map((option) => (
-                <div className="radio-field__container" key={option.name}>
-                    <input
-                        type="radio"
-                        className="radio-field__input"
-                        name={name}
-                        id={option.name + "_" + option.value}
-                        value={option.value}
-                        checked={option.value === value}
-                        onChange={handleChange}
-                    />
-                    <label
-                        className="radio-field__label"
-                        htmlFor={option.name + "_" + option.value}
-                    >
-                        {option.name}
-                    </label>
-                </div>
-            ))}
+            <div className="radio-field__container">
+                <label className="radio-field__label">{label}</label>
+                {options.map((option) => (
+                    <div className="radio-field__content" key={option.name}>
+                        <input
+                            type="radio"
+                            className="radio-field__input"
+                            name={name}
+                            id={option.name + "_" + option.value}
+                            value={option.value}
+                            checked={option.value === value}
+                            onChange={handleChange}
+                        />
+                        <label
+                            className="radio-field__label"
+                            htmlFor={option.name + "_" + option.value}
+                        >
+                            {option.name}
+                        </label>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
