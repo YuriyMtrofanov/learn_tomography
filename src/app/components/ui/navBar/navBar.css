@@ -10,7 +10,9 @@
         width: 100%
     }
     .nav__login {
-        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        width: 100%
     }
 }
 
@@ -47,11 +49,6 @@
     /* border: rgb(60, 205, 113) solid; */
 }
 
-.nav__login {
-    display: flex;
-    /* border: rgb(60, 205, 113) solid; */
-}
-
 .logo {
     display: flex;
     height: 5vh;
@@ -77,8 +74,9 @@
     color: rgb(212, 212, 212);
 }
 
-.login {
+.nav__login {
     display: flex;
+    justify-content: end;
     width: 100%;
-    /* border: rgb(56, 16, 175) solid */
+    /* border: rgb(255, 230, 2) solid */
 }

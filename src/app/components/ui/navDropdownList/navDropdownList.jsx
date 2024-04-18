@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./navDropdownList.css";
 
-const [active, setActive] = useState(false);
-const handleActive = () => {
-    setActive(prevState => !prevState);
-};
-
 const NavDropdownList = ({ active }) => {
+    console.log("active", active);
     return (
         <div className="nav-dropdown">
             <div className="nav-dropdown__container">
-                <div className={"nav-dropdown__list"  + (active ? " show" : "")}>
-
+                <div className={"nav-dropdown__list" + (active ? " show" : "")}>
+                    {/* <ul>
+                        <li>1 link</li>
+                        <li>2 link</li>
+                        <li>3 link</li>
+                    </ul> */}
                 </div>
             </div>
         </div>

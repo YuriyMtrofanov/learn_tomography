@@ -1,8 +1,45 @@
+.nav-profile {
+    display: flex;
+    cursor: pointer;
+    color: beige;
+    text-decoration: none;
+    /* border: rgb(13, 0, 255) solid; */
+}
+
 .nav-profile__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: max-content;
+    padding-left: 2vw;
+    padding-right: 2vw;
     overflow: hidden;
+    /* border: rgb(1, 216, 52) solid; */
+}
+
+.nav-profile__container:hover {
+    background-color: rgb(35, 97, 154);
+    color: rgb(212, 212, 212);
+}
+
+.nav-profile__label {
+    display: flex;
+    padding-left: .5vw;
+    padding-right: .5vw;
+    /* border: rgb(216, 1, 33) solid; */
 }
 
 .nav-profile__image {
-    height: 1vh;
+    display: flex;
+    height: 3vh;
+    overflow: hidden;
     border-radius: 50%;
+    border: rgb(216, 1, 33) solid;
+}
+.nav-profile__image {
+    display: flex;
+    /* margin: 0 auto;
+    width: auto; */
+    border: rgb(187, 216, 1) solid;
 }

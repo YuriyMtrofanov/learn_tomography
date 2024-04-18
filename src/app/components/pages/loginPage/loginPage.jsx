@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LoginForm from "../../common/forms/logiForm";
 import RegisterForm from "../../common/forms/registerForm";
 import PageFooter from "../../ui/pageFooter";
@@ -8,9 +8,6 @@ const LoginPage = () => {
     const handleChangeType = () => {
         setType(prevState => prevState === "login" ? "register" : "login");
     };
-    useEffect(() => {
-        console.log("type", type);
-    }, [type]);
     return (
         <>
             <div className="main__container">
