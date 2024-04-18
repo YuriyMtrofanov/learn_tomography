@@ -1,0 +1,8 @@
+.nav-profile__container {
+    overflow: hidden;
+}
+
+.nav-profile__image {
+    height: 1vh;
+    border-radius: 50%;
+}

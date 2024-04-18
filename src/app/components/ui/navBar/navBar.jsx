@@ -4,6 +4,8 @@ import "./navBar.css";
 
 const NavBar = () => {
     const isAdmin = true;
+    // const isLoggedIn = true;
+
     return (
         <nav className="nav">
             <div className="nav__wrapper">
