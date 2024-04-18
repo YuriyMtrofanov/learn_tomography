@@ -1,0 +1,22 @@
+.radio-field {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.radio-field__container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-field__content {
+    display: flex;
+    margin: 5px;
+}
+
+.radio-field__label {
+    padding: 5px;
+}
+
+.radio-field__input {
+    margin: 10px;
+}
