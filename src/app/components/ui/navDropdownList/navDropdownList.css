@@ -1,0 +1,15 @@
+.nav-dropdown {
+    display: flex;
+    color: grey;
+    text-decoration: none;
+    /* border: rgb(13, 0, 255) solid; */
+}
+
+.nav-dropdown__container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(212, 212, 212);
+    border: rgb(216, 1, 33) solid;
+}

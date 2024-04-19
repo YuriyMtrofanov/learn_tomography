@@ -1,5 +1,7 @@
 .nav-profile {
+    position: relative;
     display: flex;
+    flex-direction: column;
     cursor: pointer;
     color: beige;
     text-decoration: none;
@@ -15,7 +17,7 @@
     padding-left: 2vw;
     padding-right: 2vw;
     overflow: hidden;
-    /* border: rgb(1, 216, 52) solid; */
+    border: rgb(1, 216, 52) solid;
 }
 
 .nav-profile__container:hover {
@@ -30,16 +32,31 @@
     /* border: rgb(216, 1, 33) solid; */
 }
 
-.nav-profile__image {
+.nav-profile__photo {
     display: flex;
-    height: 3vh;
-    overflow: hidden;
+    height: 4vh;
+    width: 4vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;   
     border-radius: 50%;
-    border: rgb(216, 1, 33) solid;
 }
 .nav-profile__image {
-    display: flex;
-    /* margin: 0 auto;
-    width: auto; */
-    border: rgb(187, 216, 1) solid;
+    width: 100%;
 }
+
+
+
+
+/* 
+.nav-dropdown {
+    display: flex;
+    border: rgb(13, 0, 255) solid;
+}
+
+.nav-dropdown__container {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    border: rgb(216, 1, 33) solid;
+} */

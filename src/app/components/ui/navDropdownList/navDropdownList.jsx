@@ -7,13 +7,11 @@ const NavDropdownList = ({ active }) => {
     return (
         <div className="nav-dropdown">
             <div className="nav-dropdown__container">
-                <div className={"nav-dropdown__list" + (active ? " show" : "")}>
-                    {/* <ul>
-                        <li>1 link</li>
-                        <li>2 link</li>
-                        <li>3 link</li>
-                    </ul> */}
-                </div>
+                <ul className={"nav-dropdown__list" + (active ? " show" : "")}>
+                    <li className="nav-dropdown__item">1 link</li>
+                    <li className="nav-dropdown__item">2 link</li>
+                    <li className="nav-dropdown__item">3 link</li>
+                </ul>
             </div>
         </div>
     );
