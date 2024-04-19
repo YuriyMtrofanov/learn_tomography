@@ -3,11 +3,13 @@ import NavDropdownList from "../navDropdownList";
 import "./navProfile.css";
 
 const NavProfile = () => {
-    const [active, setActive] = useState(false);
-
-    const currentUser = { name: "Current User" };
+    const options = [
+        { name: "users", value: "Профиль", path: "/users" }
+    ];
+    const currentUser = { id: "1", name: "Current User" };
     // const currentUser = useSelector(getCurrentUser());
 
+    const [active, setActive] = useState(false);
     const handleActive = () => {
         setActive(prevState => !prevState);
     };
@@ -28,16 +30,11 @@ const NavProfile = () => {
                         {currentUser.name}
                     </div>
                 </div>
-                <NavDropdownList active={active}/>
-                {/* <div className="nav-dropdown">
-                    <div className="nav-dropdown__container">
-                        <ul className={"nav-dropdown__list" + (active ? " show" : "")}>
-                            <li className="nav-dropdown__item">1 link</li>
-                            <li className="nav-dropdown__item">2 link</li>
-                            <li className="nav-dropdown__item">3 link</li>
-                        </ul>
-                    </div>
-                </div> */}
+                <NavDropdownList
+                    active={active}
+                    options={options}
+                    userId={currentUser.id}
+                />
             </div>
         </>
     );

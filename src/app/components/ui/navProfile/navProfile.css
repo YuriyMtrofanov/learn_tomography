@@ -17,7 +17,7 @@
     padding-left: 2vw;
     padding-right: 2vw;
     overflow: hidden;
-    border: rgb(1, 216, 52) solid;
+    /* border: rgb(1, 216, 52) solid; */
 }
 
 .nav-profile__container:hover {
