@@ -6,33 +6,21 @@ import { NavLink } from "react-router-dom";
 const NavDropdownList = ({ active, options, userId }) => {
     // console.log("active", active);
     // console.log("userId", userId);
+    // console.log("options", options);
     return (
         <div className="nav-dropdown">
             <div className="nav-dropdown__container">
-                {options.length > 0 && userId &&
+                {options.length > 0 &&
                     options.map(item => (
                         <NavLink
                             key={item.name}
                             className="nav-dropdown__item"
-                            to={`${item.path}/${userId}`}
+                            to={`${item.path}/${item.name === "logout" ? "" : userId}`}
                         >
                             {item.value}
                         </NavLink>
                     ))
                 }
-                {/* <ul className={"nav-dropdown__list" + (active ? " show" : "")}>
-                    {options.length > 0 && userId &&
-                        options.map(item => (
-                            <NavLink
-                                key={item.name}
-                                className="nav-dropdown__item"
-                                to={`${item.path}/${userId}`}
-                            >
-                                {item.value}
-                            </NavLink>
-                        ))
-                    }
-                </ul> */}
             </div>
         </div>
     );

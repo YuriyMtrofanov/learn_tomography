@@ -4,7 +4,8 @@ import "./navProfile.css";
 
 const NavProfile = () => {
     const options = [
-        { name: "users", value: "Профиль", path: "/users" }
+        { name: "users", value: "Профиль", path: "/users" },
+        { name: "logout", value: "Выйти", path: "/logout" }
     ];
     const currentUser = { id: "1", name: "Current User" };
     // const currentUser = useSelector(getCurrentUser());
