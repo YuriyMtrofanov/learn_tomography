@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "../../common/forms/logiForm";
 import RegisterForm from "../../common/forms/registerForm";
-import PageFooter from "../../ui/pageFooter";
+import MainFooter from "../../ui/mainFooter";
 
 const LoginPage = () => {
     const [type, setType] = useState("login");
@@ -30,7 +30,7 @@ const LoginPage = () => {
                     </div>
                 </div>
             </div>
-            <PageFooter/>
+            <MainFooter/>
         </>
     );
 };

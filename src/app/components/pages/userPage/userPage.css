@@ -1,0 +1,90 @@
+.user-page {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    align-items: center;
+    /* border: rgb(191, 198, 0) solid; */
+}
+
+.user-page__container {
+    display: flex;
+    position: static;
+    /* min-height: 150vh; */
+    width: 80%;
+    background-color: rgb(124, 181, 235);
+    box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.5);
+    /* border: rgb(210, 0, 31) solid; */
+}
+  
+.user-page__content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 5.5vh .5vh .5vh .5vh;
+    /* border: rgb(1, 117, 9) solid; */
+}
+  
+.user-page__sideBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+    height: 100%;
+    margin: 0 5px 5px 0;
+    background-color: rgb(186, 220, 251);
+    /* border: rgb(111, 1, 117) solid; */
+}
+  
+.user-page__body {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: start; */
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(186, 220, 251);
+    /* border: rgb(111, 1, 117) solid; */
+}
+
+.user-profile__header {
+    display: flex;
+    margin: 5px;
+    background-color: rgb(124, 181, 235);
+    /* border: rgb(1, 24, 117) solid; */
+}
+
+.user-profile__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    width: 15vh;
+    /* margin-left: 1vw; */
+    margin: 5px 1vw;
+    overflow: hidden;   
+    border-radius: 50%;
+    border: rgb(255, 255, 255) solid 5px;
+}
+
+.user-profile__photo img {
+    width: 100%;
+}
+
+.user-profile_info {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    /* width: 81%; */
+    border: rgb(111, 1, 117) solid;
+}
+
+.user-profile__name {
+    display: flex;
+    border: rgb(24, 117, 1) solid;
+}
+
+.user-profile__data {
+    display: flex;
+    height: 100%;
+    border: rgb(24, 117, 1) solid;
+}

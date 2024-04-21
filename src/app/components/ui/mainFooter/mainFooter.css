@@ -1,0 +1,20 @@
+.main__footer {
+    display: flex;
+    justify-content: center;
+    position: static;
+    height: 5vh;
+    width: 100vw;
+    background-color: rgb(132, 133, 149);
+    /* border: rgb(212, 235, 4) solid; */
+}
+
+.footer_content {
+    display: flex;
+    width: 80%;
+    /* border: rgb(230, 3, 21) solid; */
+}
+
+.footer_info {
+    margin: 10px;
+    /* border: rgb(230, 3, 21) solid; */
+}
