@@ -4,11 +4,16 @@ import "./navDropdownList.css";
 import { NavLink } from "react-router-dom";
 
 const NavDropdownList = ({ active, options, userId }) => {
-    // console.log("active", active);
-    // console.log("userId", userId);
-    // console.log("options", options);
+    const changeClassName = () => {
+        return `nav-dropdown ${!active ? "hidden" : ""}`;
+    };
+    // const handleGetElement = () => {
+    //     const element = document.querySelector(".nav-dropdown");
+    //     return element;
+    // };
+
     return (
-        <div className="nav-dropdown">
+        <div className={changeClassName()}>
             <div className="nav-dropdown__container">
                 {options.length > 0 &&
                     options.map(item => (

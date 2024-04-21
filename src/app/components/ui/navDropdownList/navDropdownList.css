@@ -5,6 +5,10 @@
     /* border: rgb(13, 0, 255) solid; */
 }
 
+.hidden {
+    display: none;
+}
+
 .nav-dropdown__container {
     position: absolute;
     display: flex;
@@ -13,6 +17,10 @@
     /* background-color: rgb(255, 255, 255); */
     box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.5);
     /* border: rgb(216, 1, 33) solid; */
+}
+
+.nav-dropdown__container .hidden {
+    display: none
 }
 
 .dropdown__list{
