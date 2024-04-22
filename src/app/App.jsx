@@ -24,7 +24,6 @@ function App() {
                 <Route index element={<MainPage/>}/>
                 <Route path="learn" element={<ArticlesPage/>}/>
                 <Route path="tests" element={<TestsPage/>}/>
-                {/* <Route path="users" element={<UserPage/>}/> */}
                 <Route path="users" element={<Outlet/>}>
                     <Route index element={<UsersPage/>}/>
                     <Route path=":userId" element={<UserPage/>}/>

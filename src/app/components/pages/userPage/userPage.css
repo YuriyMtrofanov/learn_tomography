@@ -85,6 +85,5 @@
 
 .user-profile__data {
     display: flex;
-    height: 100%;
     border: rgb(24, 117, 1) solid;
 }
