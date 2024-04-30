@@ -34,6 +34,7 @@ const LoginForm = () => {
                 />
                 <TextField
                     name="password"
+                    type="password"
                     label="Введите пароль"
                     placeholder="password"
                     onChange={handleChange}

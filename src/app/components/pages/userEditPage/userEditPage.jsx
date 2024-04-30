@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterForm from "../../common/forms/registerForm";
+import UserEditForm from "../../common/forms/userEditForm";
 
 const UserEditPage = () => {
     return (
@@ -7,7 +7,8 @@ const UserEditPage = () => {
             <div className="main__content">
                 <div className="main__body">
                     <div className="login-form">
-                        <RegisterForm/>
+                        <h1>Редактировать информацию</h1>
+                        <UserEditForm/>
                     </div>
                 </div>
             </div>
