@@ -26,7 +26,6 @@ const LoginForm = () => {
     return (
         <form onSubmit = {handleSubmit}>
             <div className="login-form__container">
-                <h1>Вход в систему</h1>
                 <TextField
                     name="email"
                     label="Введите электронную почту"

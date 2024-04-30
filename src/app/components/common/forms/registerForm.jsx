@@ -35,7 +35,6 @@ const RegisterForm = () => {
 
     return (
         <form onSubmit = {handleSubmit}>
-            <h1>Создать аккаунт пользователя</h1>
             <TextField
                 name="email"
                 label="Введите электронную почту"
@@ -119,7 +118,7 @@ const RegisterForm = () => {
                     { name: "Магистр", value: "master" },
                     { name: "Аспирант", value: "graduate_student" },
                     { name: "Интерн", value: "intern" },
-                    { name: "Практикующий врач", value: "pPracticing" }
+                    { name: "Практикующий врач", value: "practicing" }
                 ]}
             />
             <TextField

@@ -16,12 +16,14 @@ const LoginPage = () => {
                         {type === "login"
                             ? (
                                 <div className="login-form">
+                                    <h1>Войти в систему</h1>
                                     <LoginForm/>
                                     <p onClick={handleChangeType}>Создать аккаунт</p>
                                 </div>
                             )
                             : (
                                 <div className="login-form">
+                                    <h1>Создать учетную запись</h1>
                                     <RegisterForm/>
                                     <p onClick={handleChangeType}>Уже есть аккаунт?</p>
                                 </div>

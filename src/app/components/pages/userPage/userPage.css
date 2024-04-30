@@ -1,9 +1,22 @@
+@media screen and (max-width: 1000px) {
+    .user-profile__header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .user-profile__name {
+        font-size: medium;
+        font-weight: 600;
+        /* width: 49vw; */
+    }
+}
+
 .user-page {
     display: flex;
     flex-direction: column;
     font-size: medium;
     align-items: center;
-    /* border: rgb(191, 198, 0) solid; */
+    border: rgb(191, 198, 0) solid;
 }
 
 .user-page__container {
@@ -24,15 +37,37 @@
     /* border: rgb(1, 117, 9) solid; */
 }
   
-.user-page__sideBar {
+.user-page__side-bar {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18vw;
+    min-width: 20%;
     height: 100%;
     margin: 0 5px 5px 0;
     background-color: rgb(186, 220, 251);
+    text-decoration: none;
     /* border: rgb(111, 1, 117) solid; */
+}
+
+.user-page__side-bar ul {
+    list-style-type: none;
+    width: 100%;
+    /* border: rgb(111, 1, 117) solid; */
+}
+
+.side-bar__item {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: rgb(35, 88, 138);
+    padding: 5px;
+    min-height: 4vh;
+}
+
+.side-bar__item:hover {
+    color: rgb(15, 60, 101);
+    background-color: rgb(156, 195, 233);
+    font-weight: 600;
 }
   
 .user-page__body {
@@ -41,7 +76,7 @@
     /* justify-content: center;
     align-items: start; */
     min-height: 100vh;
-    width: 100%;
+    width: 80%;
     background-color: rgb(186, 220, 251);
     /* border: rgb(111, 1, 117) solid; */
 }
@@ -74,16 +109,30 @@
     display: flex;
     flex-direction: column;
     margin: 5px;
-    /* width: 81%; */
-    border: rgb(111, 1, 117) solid;
+    width: 85%;
+    /* border: rgb(243, 0, 0) solid; */
 }
 
 .user-profile__name {
     display: flex;
-    border: rgb(24, 117, 1) solid;
+    min-height: 40%;
+    font-size: 2rem;
+    font-weight: 900;
+    /* width: 49vw; */
+    /* border: rgb(24, 117, 1) solid; */
 }
 
 .user-profile__data {
     display: flex;
-    border: rgb(24, 117, 1) solid;
+    height: 60%;
+    /* border: rgb(24, 117, 1) solid; */
+}
+
+.user-profile__content {
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    height: 100%;
+    background-color: rgb(124, 181, 235);
+    /* border: rgb(1, 24, 117) solid; */
 }

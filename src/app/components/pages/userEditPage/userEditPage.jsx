@@ -13,6 +13,6 @@ const UserEditPage = () => {
             </div>
         </div>
     );
-}
- 
+};
+
 export default UserEditPage;
