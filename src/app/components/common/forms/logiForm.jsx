@@ -20,7 +20,7 @@ const LoginForm = () => {
         const outputDta = {
             ...inputData
         };
-        console.log("outputDta", outputDta);
+        console.log("Output-Data", outputDta);
     };
 
     return (
@@ -41,9 +41,8 @@ const LoginForm = () => {
                 />
                 <Button
                     type="submit"
-                    label="submit"
                     className="submit-button"
-                />
+                >Submit</Button>
             </div>
         </form>
     );

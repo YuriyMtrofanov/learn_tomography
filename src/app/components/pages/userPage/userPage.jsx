@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./userPage.css";
 import MainFooter from "../../ui/mainFooter";
 import { currentUser } from "../../../mocData/user";
+import Button from "../../ui/button/button";
 
 const UserPage = () => {
     return (
@@ -26,11 +27,19 @@ const UserPage = () => {
                             </div>
                             <div className="user-profile_info">
                                 <div className="user-profile__name">
-                                    <div>{`${currentUser.firstName} ${currentUser.lastName}`}</div>
+                                    {`${currentUser.firstName} ${currentUser.lastName}`}
                                 </div>
                                 <div className="user-profile__data">
                                     <div>{currentUser.university}</div>
                                     <div>{currentUser.specialization}</div>
+                                    <Button
+                                        className="user-profile__edit-button"
+                                        type="button"
+                                    >
+                                        <NavLink className="user-profile__label" to={`/users/${currentUser.id}/edit`}>
+                                            <h2><i className="bi bi-gear"></i></h2>
+                                        </NavLink>
+                                    </Button>
                                 </div>
                             </div>
                         </div>

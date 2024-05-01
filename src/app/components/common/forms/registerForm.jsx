@@ -129,9 +129,8 @@ const RegisterForm = () => {
             />
             <Button
                 type="submit"
-                label="submit"
                 className="submit-button"
-            />
+            >Submit</Button>
         </form>
     );
 };

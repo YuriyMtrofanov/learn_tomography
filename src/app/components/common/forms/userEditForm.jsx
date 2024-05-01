@@ -117,9 +117,8 @@ const UserEditForm = () => {
             />
             <Button
                 type="submit"
-                label="submit"
                 className="submit-button"
-            />
+            >Submit</Button>
         </form>
     );
 };
