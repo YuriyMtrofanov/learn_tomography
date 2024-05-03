@@ -20,7 +20,7 @@ const UserPage = () => {
                 >
                     <h1><i className="bi bi-caret-left"></i></h1>
                 </Button>
-                <div className="user-page__content">
+                <div className="user-page__body">
                     <div className="user-page__side-bar">
                         <ul>
                             <li><NavLink className="side-bar__item" to={`/users/${currentUser.id}`}>Моя страница</NavLink></li>
@@ -29,7 +29,7 @@ const UserPage = () => {
                             <li><NavLink className="side-bar__item" to={`/users/${currentUser.id}/edit`}>Редактировать</NavLink></li>
                         </ul>
                     </div>
-                    <div className="user-page__body">
+                    <div className="user-page__content">
                         <div className="user-profile__header">
                             <div className="user-profile__photo">
                                 <img
