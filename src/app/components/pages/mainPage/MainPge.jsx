@@ -1,4 +1,5 @@
 import React from "react";
+import MainFooter from "../../ui/mainFooter";
 
 const MainPage = () => {
     return (
@@ -13,13 +14,7 @@ const MainPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="main__footer">
-                <div className="footer_content">
-                    <div className="footer_info">
-                        <p>Created by Mitrofanov Yuriy</p>
-                    </div>
-                </div>
-            </div>
+            <MainFooter/>
         </>
     );
 };

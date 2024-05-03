@@ -20,13 +20,12 @@ const LoginForm = () => {
         const outputDta = {
             ...inputData
         };
-        console.log("outputDta", outputDta);
+        console.log("Output-Data", outputDta);
     };
 
     return (
         <form onSubmit = {handleSubmit}>
             <div className="login-form__container">
-                <h1>Вход в систему</h1>
                 <TextField
                     name="email"
                     label="Введите электронную почту"
@@ -35,15 +34,15 @@ const LoginForm = () => {
                 />
                 <TextField
                     name="password"
+                    type="password"
                     label="Введите пароль"
                     placeholder="password"
                     onChange={handleChange}
                 />
                 <Button
                     type="submit"
-                    label="submit"
                     className="submit-button"
-                />
+                >Submit</Button>
             </div>
         </form>
     );

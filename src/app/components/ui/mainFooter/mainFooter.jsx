@@ -1,5 +1,7 @@
 import React from "react";
-const PageFooter = () => {
+import "./mainFooter.css";
+
+const MainFooter = () => {
     return (
         <div className="main__footer">
             <div className="footer_content">
@@ -11,4 +13,4 @@ const PageFooter = () => {
     );
 };
 
-export default PageFooter;
+export default MainFooter;

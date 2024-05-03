@@ -7,9 +7,11 @@
     border-radius: 5px;
     background-color: rgb(46, 117, 183);
     color: beige;
+    transition: 0.2s;
 }
 
 .submit-button:hover {
     background-color: rgb(35, 97, 154);
     color: rgb(212, 212, 212);
+    /* transition: 0.2s; */
 }

@@ -1,9 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./navBar.css";
+import NavProfile from "../navProfile/navProfile";
 
 const NavBar = () => {
     const isAdmin = true;
+    const isLoggedIn = true;
+
     return (
         <nav className="nav">
             <div className="nav__wrapper">
@@ -18,7 +21,10 @@ const NavBar = () => {
                         )}
                     </ul>
                     <ul className="nav__login">
-                        <NavLink className="nav__link login" to="/login">Login</NavLink>
+                        {isLoggedIn
+                            ? (<NavProfile/>)
+                            : (<NavLink className="nav__link login" to="/login">Login</NavLink>)
+                        }
                     </ul>
                 </div>
             </div>

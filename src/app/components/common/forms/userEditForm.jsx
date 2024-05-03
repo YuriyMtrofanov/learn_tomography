@@ -3,20 +3,10 @@ import TextField from "../inputs/textField";
 import Button from "../../ui/button/button";
 import RadioField from "../inputs/radioField/radioField";
 import SelectField from "../inputs/selectField/selectField";
+import { currentUser } from "../../../mocData/user";
 
-const RegisterForm = () => {
-    const initialData = {
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        sex: "male" || "female",
-        university: "",
-        specialization: "",
-        grade: "",
-        img: "",
-        type: "user" || "admin"
-    };
+const UserEditForm = () => {
+    const initialData = { ...currentUser };
     const [inputData, setInputData] = useState(initialData);
     const handleChange = (target) => {
         setInputData(prevState => ({
@@ -38,24 +28,21 @@ const RegisterForm = () => {
             <TextField
                 name="email"
                 label="Введите электронную почту"
+                value={inputData.email}
                 placeholder="e-mail@example.com"
-                onChange={handleChange}
-            />
-            <TextField
-                name="password"
-                label="Придумайте пароль"
-                placeholder="password"
                 onChange={handleChange}
             />
             <TextField
                 name="firstName"
                 label="Ваше имя"
+                value={inputData.firstName}
                 placeholder="Имя"
                 onChange={handleChange}
             />
             <TextField
                 name="lastName"
                 label="Ваша фамилия"
+                value={inputData.lastName}
                 placeholder="Фамилия"
                 onChange={handleChange}
             />
@@ -124,6 +111,7 @@ const RegisterForm = () => {
             <TextField
                 name="img"
                 label="Ссылка на аватар"
+                value={inputData.img}
                 placeholder="https://..."
                 onChange={handleChange}
             />
@@ -135,4 +123,4 @@ const RegisterForm = () => {
     );
 };
 
-export default RegisterForm;
+export default UserEditForm;

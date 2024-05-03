@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./textField.css";
 
-const TextField = ({ name, label, description, placeholder, onChange }) => {
+const TextField = ({ name, label, value, type, placeholder, onChange }) => {
     const handleChange = ({ target }) => {
         onChange({
             name: target.name,
             value: target.value
         });
+    };
+    const [password, setPassword] = useState();
+    const changeShowPassword = () => {
+        setPassword(prevState => !prevState);
     };
     return (
         <div className="text-field">
@@ -21,13 +25,25 @@ const TextField = ({ name, label, description, placeholder, onChange }) => {
                 <input
                     id={name}
                     name={name}
-                    type="text"
+                    value={value}
+                    type={password ? "text" : type}
                     className="text-field__input"
                     placeholder={placeholder}
                     onChange={handleChange}
-                    aria-describedby="help"
                 />
-                <div className="text-field__description">{description}</div>
+                {type === "password" && (
+                    <button
+                        className="show-password"
+                        type="button"
+                        onClick={changeShowPassword}
+                    >
+                        <i
+                            className={
+                                "bi bi-eye" + (password ? "-slash" : "")
+                            }
+                        ></i>
+                    </button>
+                )}
             </div>
         </div>
     );
@@ -35,8 +51,9 @@ const TextField = ({ name, label, description, placeholder, onChange }) => {
 
 TextField.propTypes = {
     name: PropTypes.string,
+    value: PropTypes.string,
+    type: PropTypes.string,
     label: PropTypes.string,
-    description: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
 };
