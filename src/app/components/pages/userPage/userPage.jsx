@@ -1,14 +1,25 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./userPage.css";
 import MainFooter from "../../ui/mainFooter";
 import { currentUser } from "../../../mocData/user";
 import Button from "../../ui/button/button";
 
 const UserPage = () => {
+    const navigate = useNavigate();
+    const handleBack = (data) => {
+        navigate(data ? `${data}` : -1);
+    };
     return (
         <div className="user-page">
             <div className="user-page__container">
+                <Button
+                    className="user-profile__back-button"
+                    type="button"
+                    onClick={() => handleBack()}
+                >
+                    <h1><i className="bi bi-caret-left"></i></h1>
+                </Button>
                 <div className="user-page__content">
                     <div className="user-page__side-bar">
                         <ul>

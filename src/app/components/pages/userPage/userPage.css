@@ -7,7 +7,6 @@
     .user-profile__name {
         font-size: medium;
         font-weight: 600;
-        /* width: 49vw; */
     }
     .user-profile__data {
         flex-direction: column;
@@ -15,16 +14,17 @@
 }
 
 .user-page {
+    position: relative;
     display: flex;
     flex-direction: column;
     font-size: medium;
     align-items: center;
-    border: rgb(191, 198, 0) solid;
+    /* border: rgb(2, 255, 19) solid; */
 }
 
 .user-page__container {
     display: flex;
-    position: static;
+    /* position: static; */
     /* min-height: 150vh; */
     width: 80%;
     background-color: rgb(124, 181, 235);
@@ -171,5 +171,28 @@
 }
 
 .user-profile__label:hover {
+    color: rgb(212, 212, 212);
+}
+
+.user-profile__back-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 7.5vh;
+    left: 4.5vw;
+    color: azure;
+    border: none;
+    font-size: larger;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(46, 117, 183);
+    box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
+
+.user-profile__back-button:hover {
+    background-color: rgb(35, 97, 154);
     color: rgb(212, 212, 212);
 }
