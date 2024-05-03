@@ -2,7 +2,9 @@ import React from "react";
 import "./articlesPage.css";
 import Button from "../../ui/button/button";
 import { useNavigate } from "react-router-dom";
-import MainFooter from "../../ui/mainFooter";
+// import MainFooter from "../../ui/mainFooter";
+import { articlesList } from "../../../mocData/articles";
+import ArticleCardLarge from "../../common/cards/articleCardLarge";
 
 const ArticlesPage = () => {
     const navigate = useNavigate();
@@ -31,14 +33,20 @@ const ArticlesPage = () => {
                         </ul>
                     </div>
                     <div className="articles-page__content">
-                        <h1>Articles Content</h1>
+                        {articlesList.length > 0 &&
+                            articlesList.map(item => (
+                                <ArticleCardLarge
+                                    key={item.id}
+                                    image={item.img}
+                                    header={item.header}
+                                    content={item.content}
+                                />
+                            ))
+                        }
                     </div>
                 </div>
-                {/* <div className="main__body">
-                    <h1>Articles Content</h1>
-                </div> */}
             </div>
-            <MainFooter/>
+            {/* <MainFooter/> */}
         </div>
     );
 };
