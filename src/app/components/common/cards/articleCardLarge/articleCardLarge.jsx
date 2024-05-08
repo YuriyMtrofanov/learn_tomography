@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./articleCardLarge.css";
+import Button from "../../../ui/button/button";
+import { useNavigate } from "react-router-dom";
 
-const ArticleCardLarge = ({ image, header, content }) => {
+const ArticleCardLarge = ({ articleId, image, header, content }) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(articleId ? `${articleId}` : -1);
+    };
     return (
         <div className="article-card-lg">
-            <div className="article-card-lg__container">
+            <div className="article-card-lg__wrapper">
                 <div className="article-card-lg__image">
                     <img src={image} alt="image" />
-                    {/* <img src="http://placehold.it/600x350" alt="image" /> */}
                 </div>
                 <div className="article-card-lg__body">
                     <div className="article-card-lg__header">
@@ -18,7 +23,11 @@ const ArticleCardLarge = ({ image, header, content }) => {
                         {content}
                     </div>
                     <div className="article-card-lg__footer">
-                        <p>footer</p>
+                        <Button
+                            className="article-card-lg__button"
+                            type="button"
+                            onClick={handleClick}
+                        >Читать</Button>
                     </div>
                 </div>
             </div>
@@ -27,6 +36,7 @@ const ArticleCardLarge = ({ image, header, content }) => {
 };
 
 ArticleCardLarge.propTypes = {
+    articleId: PropTypes.string,
     image: PropTypes.string,
     header: PropTypes.string,
     content: PropTypes.string

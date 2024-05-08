@@ -17,6 +17,7 @@ import AdminPage from "./components/pages/adminPage";
 import LogoutPage from "./components/pages/logoutPage";
 import FavoritesPage from "./components/pages/favoritesPage";
 import UserEditPage from "./components/pages/userEditPage";
+import ArticlePage from "./components/pages/articlePage/articlePage";
 
 function App() {
     return (
@@ -24,7 +25,12 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route index element={<MainPage/>}/>
-                <Route path="learn" element={<ArticlesPage/>}/>
+                <Route path="learn" element={<Outlet/>}>
+                    <Route index element={<ArticlesPage/>}/>
+                    <Route path=":articleId" element={<Outlet/>}>
+                        <Route index element={<ArticlePage/>}/>
+                    </Route>
+                </Route>
                 <Route path="tests" element={<TestsPage/>}/>
                 <Route path="users" element={<Outlet/>}>
                     {/* <Route index element={<UserPage/>}/> */}

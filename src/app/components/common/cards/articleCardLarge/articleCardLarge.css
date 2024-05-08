@@ -5,20 +5,19 @@
     overflow: hidden;
     margin-bottom: 5px;
     color: rgb(15, 60, 101);
-    /* border: rgb(255, 2, 61) solid; */
     border: rgb(15, 60, 101) solid 1px;
     background-color: rgb(186, 220, 251);
 }
 
-.article-card-lg__container {
+.article-card-lg__wrapper {
     display: flex;
     /* border: rgb(2, 255, 19) solid; */
 }
 
 .article-card-lg__image {
     display: flex;
-    height: 25vh;
-    width: 25vw;
+    height: 24vh;
+    width: 28vw;
     overflow: hidden;
     /* border: rgb(255, 145, 2) solid; */
 }
@@ -56,5 +55,30 @@
 .article-card-lg__footer {
     display: flex;
     padding: 5px;
+    justify-content: end;
     /* border: rgb(2, 48, 255) solid; */
+}
+
+.article-card-lg__button {
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    min-width: fit-content;
+    width: 8vw;
+    height: 3.5vh;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(46, 117, 183);
+    /* box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.5); */
+    transition: 0.2s;
+}
+
+.article-card-lg__button:hover {
+    background-color: rgb(35, 97, 154);
+    color: rgb(212, 212, 212);
 }

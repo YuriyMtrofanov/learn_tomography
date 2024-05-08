@@ -47,7 +47,7 @@
     min-width: 20%;
     height: 100%;
     margin: 0 5px 5px 0;
-    background-color: rgb(186, 220, 251);
+    /* background-color: rgb(186, 220, 251); */
     text-decoration: none;
     /* border: rgb(111, 1, 117) solid; */
 }
