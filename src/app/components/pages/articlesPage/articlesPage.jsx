@@ -2,7 +2,7 @@ import React from "react";
 import "./articlesPage.css";
 import Button from "../../ui/button/button";
 import { useNavigate } from "react-router-dom";
-// import MainFooter from "../../ui/mainFooter";
+import MainFooter from "../../ui/mainFooter";
 import { articlesList } from "../../../mocData/articles";
 import ArticleCardLarge from "../../common/cards/articleCardLarge";
 
@@ -46,7 +46,7 @@ const ArticlesPage = () => {
                     </div>
                 </div>
             </div>
-            {/* <MainFooter/> */}
+            <MainFooter/>
         </div>
     );
 };

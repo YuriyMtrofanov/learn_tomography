@@ -7,8 +7,8 @@ const ArticleCardLarge = ({ image, header, content }) => {
         <div className="article-card-lg">
             <div className="article-card-lg__container">
                 <div className="article-card-lg__image">
-                    {/* <img src={image} alt="image" /> */}
-                    <img src="http://placehold.it/600x350" alt="image" />
+                    <img src={image} alt="image" />
+                    {/* <img src="http://placehold.it/600x350" alt="image" /> */}
                 </div>
                 <div className="article-card-lg__body">
                     <div className="article-card-lg__header">

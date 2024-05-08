@@ -8,7 +8,7 @@ export const articlesList = [
     {
         id: "2",
         header: "Название статьи 2",
-        img: "https://i.pinimg.com/originals/f4/24/1e/f4241e3b0379c16b1985bbaf1c26a336.jpg",
+        img: "https://f.vividscreen.info/soft/1b166db15b3f5ca4a524bbd9979cc812/Starry-Space-1280x960.jpg",
         content: "Содержание статьи 2"
     },
     {
