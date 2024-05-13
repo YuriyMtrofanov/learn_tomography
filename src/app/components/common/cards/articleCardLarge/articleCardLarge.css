@@ -25,6 +25,11 @@
 .article-card-lg__image img {
     object-fit: cover;
     width: 100%;
+    transition: transform .4s ease-out;
+}
+
+.article-card-lg__image img:hover {
+transform: scale(1.1);
 }
 
 .article-card-lg__body {
