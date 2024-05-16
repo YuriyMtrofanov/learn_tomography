@@ -13,26 +13,57 @@ const ArticlesPage = () => {
     const handleBack = (data) => {
         navigate(data ? `${data}` : -1);
     };
-    const [sortedArticles, setSortedArticles] = useState(articlesList);
-    const handleSort = (data) => {
-        setSortedArticles(articlesList.filter(item => item.title === data));
-    };
+    const articles = articlesList;
+    const [articleTitle, setArticleTitle] = useState();
+    const [inputData, setInputData] = useState("");
     const handleSearch = (data) => {
-        !data
-            ? setSortedArticles(articlesList)
-            : setSortedArticles(sortedArticles.filter(item => item.content.includes(data)));
+        setArticleTitle(); // нужно ли обнулять поиск по теме статьи при использовании поисковой строки?
+        setInputData(data.toString());
     };
+    const handleSort = (data) => {
+        setInputData("");
+        setArticleTitle(data);
+    };
+
+    function filterArticles(data) {
+        let filteredArticles = data;
+        if (inputData) {
+            filteredArticles = data.filter(item => item.content.toLowerCase().includes(inputData.toLowerCase()));
+        } else if (articleTitle) {
+            filteredArticles = data.filter(item => item.title === articleTitle);
+        };
+        return filteredArticles;
+    };
+    const filteredArticles = filterArticles(articles);
+
+    const step = 5;
+    const [numberOfElements, setNumberOfElements] = useState(step);
     const handleReset = () => {
-        setSortedArticles(articlesList);
+        setNumberOfElements(step);
+        setArticleTitle();
     };
+    function paginate(data, index) {
+        return [...data].splice(0, index);
+    };
+    window.addEventListener("scroll", () => {
+        const documentRect = document.documentElement.getBoundingClientRect();
+        const windowHeight = document.documentElement.clientHeight;
+        const interval = 150; // кол-во пикселей до нижней границы экрана
+        if (documentRect.bottom < windowHeight + interval) {
+            setNumberOfElements(prevState => prevState + step);
+        }
+    });
+    const croppedArticles = paginate(filteredArticles, numberOfElements);
+
     // метод изменения отображения карточек на странице список или ячейки
     const [viewType, setViewType] = useState("list" || "cels");
     const handleChangeViewType = (data) => {
         setViewType(data);
     };
     useEffect(() => {
-        console.log("viewType", viewType);
+        // console.log("viewType", viewType);
     }, [viewType]);
+
     return (
         <div className="articles-page">
             <div className="articles-page__container">
@@ -80,8 +111,8 @@ const ArticlesPage = () => {
                                 />
                             </div>
                         </div>
-                        {sortedArticles.length > 0 &&
-                            sortedArticles.map(item => (
+                        {croppedArticles.length > 0 &&
+                            croppedArticles.map(item => (
                                 <ArticleCardLarge
                                     key={item.id}
                                     articleId={item.id}
@@ -91,6 +122,7 @@ const ArticlesPage = () => {
                                 />
                             ))
                         }
+                        {croppedArticles.length < numberOfElements && "Loading..."}
                     </div>
                 </div>
             </div>
