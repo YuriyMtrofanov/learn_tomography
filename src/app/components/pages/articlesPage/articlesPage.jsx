@@ -48,9 +48,15 @@ const ArticlesPage = () => {
     window.addEventListener("scroll", () => {
         const documentRect = document.documentElement.getBoundingClientRect();
         const windowHeight = document.documentElement.clientHeight;
-        const interval = 150; // кол-во пикселей до нижней границы экрана
+        const interval = 0; // кол-во пикселей до нижней границы экрана
         if (documentRect.bottom < windowHeight + interval) {
-            setNumberOfElements(prevState => prevState + step);
+            if (numberOfElements < articles.length) {
+                setNumberOfElements(prevState => prevState + step);
+            }
+            // else if (numberOfElements > articles.length) {
+            //     console.log("stop loading");
+            // };
+            // setNumberOfElements(prevState => prevState + step);
         }
     });
     const croppedArticles = paginate(filteredArticles, numberOfElements);
@@ -61,8 +67,10 @@ const ArticlesPage = () => {
         setViewType(data);
     };
     useEffect(() => {
-        // console.log("viewType", viewType);
-    }, [viewType]);
+        console.log("viewType", viewType);
+        // console.log("numberOfElements", numberOfElements);
+        console.log("splice", `splice(0, ${numberOfElements})`);
+    }, [numberOfElements]);
 
     return (
         <div className="articles-page">
