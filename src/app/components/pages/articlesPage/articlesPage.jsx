@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 import MainFooter from "../../ui/mainFooter";
 import { articlesList } from "../../../mocData/articles";
 import { articleTitles } from "../../../mocData/articleTitles";
+import paginate from "../../../utils/paginate";
 import ArticleCardLarge from "../../common/cards/articleCardLarge";
 import SearchForm from "../../common/forms/searchForm";
+import SpinnerLoader from "../../ui/spinnerLoader/spinnerLoader";
 
 const ArticlesPage = () => {
     const navigate = useNavigate();
@@ -42,23 +44,20 @@ const ArticlesPage = () => {
         setNumberOfElements(step);
         setArticleTitle();
     };
-    function paginate(data, index) {
-        return [...data].splice(0, index);
-    };
-    window.addEventListener("scroll", () => {
-        const documentRect = document.documentElement.getBoundingClientRect();
-        const windowHeight = document.documentElement.clientHeight;
-        const interval = 0; // кол-во пикселей до нижней границы экрана
-        if (documentRect.bottom < windowHeight + interval) {
-            if (numberOfElements < articles.length) {
-                setNumberOfElements(prevState => prevState + step);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const documentRect = document.documentElement.getBoundingClientRect();
+            const windowHeight = document.documentElement.clientHeight;
+            const interval = 100; // кол-во пикселей до нижней границы экрана
+            if (documentRect.bottom < windowHeight + interval) {
+                articles.length >= numberOfElements && setNumberOfElements(prevState => prevState + step);
             }
-            // else if (numberOfElements > articles.length) {
-            //     console.log("stop loading");
-            // };
-            // setNumberOfElements(prevState => prevState + step);
-        }
-    });
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [numberOfElements]);
+
     const croppedArticles = paginate(filteredArticles, numberOfElements);
 
     // метод изменения отображения карточек на странице список или ячейки
@@ -67,10 +66,8 @@ const ArticlesPage = () => {
         setViewType(data);
     };
     useEffect(() => {
-        console.log("viewType", viewType);
-        // console.log("numberOfElements", numberOfElements);
-        console.log("splice", `splice(0, ${numberOfElements})`);
-    }, [numberOfElements]);
+        // console.log("viewType", viewType);
+    }, [viewType]);
 
     return (
         <div className="articles-page">
@@ -130,7 +127,9 @@ const ArticlesPage = () => {
                                 />
                             ))
                         }
-                        {croppedArticles.length < numberOfElements && "Loading..."}
+                        {filteredArticles.length >= numberOfElements && (
+                            <SpinnerLoader/>
+                        )}
                     </div>
                 </div>
             </div>
