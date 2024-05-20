@@ -7,6 +7,7 @@ import { articlesList } from "../../../mocData/articles";
 import { articleTitles } from "../../../mocData/articleTitles";
 import paginate from "../../../utils/paginate";
 import ArticleCardLarge from "../../common/cards/articleCardLarge";
+import ArticleCardMiddle from "../../common/cards/articleCardMiddle/articleCardMiddle";
 import SearchForm from "../../common/forms/searchForm";
 import SpinnerLoader from "../../ui/spinnerLoader/spinnerLoader";
 
@@ -38,6 +39,12 @@ const ArticlesPage = () => {
     };
     const filteredArticles = filterArticles(articles);
 
+    // метод изменения отображения карточек на странице список или ячейки
+    const [viewType, setViewType] = useState("list" || "grid");
+    const handleChangeViewType = (data) => {
+        setViewType(data);
+    };
+
     const step = 5;
     const [numberOfElements, setNumberOfElements] = useState(step);
     const handleReset = () => {
@@ -59,15 +66,6 @@ const ArticlesPage = () => {
     }, [numberOfElements]);
 
     const croppedArticles = paginate(filteredArticles, numberOfElements);
-
-    // метод изменения отображения карточек на странице список или ячейки
-    const [viewType, setViewType] = useState("list" || "cels");
-    const handleChangeViewType = (data) => {
-        setViewType(data);
-    };
-    useEffect(() => {
-        // console.log("viewType", viewType);
-    }, [viewType]);
 
     return (
         <div className="articles-page">
@@ -105,7 +103,7 @@ const ArticlesPage = () => {
                                 <h1 onClick={() => handleChangeViewType("list")}>
                                     <i className="bi bi-card-list"></i>
                                 </h1>
-                                <h1 onClick={() => handleChangeViewType("cels")}>
+                                <h1 onClick={() => handleChangeViewType("grid")}>
                                     <i className="bi bi-grid"></i>
                                 </h1>
                             </div>
@@ -116,20 +114,34 @@ const ArticlesPage = () => {
                                 />
                             </div>
                         </div>
-                        {croppedArticles.length > 0 &&
-                            croppedArticles.map(item => (
-                                <ArticleCardLarge
-                                    key={item.id}
-                                    articleId={item.id}
-                                    image={item.img}
-                                    header={item.header}
-                                    content={item.content}
-                                />
-                            ))
-                        }
-                        {filteredArticles.length >= numberOfElements && (
-                            <SpinnerLoader/>
-                        )}
+                        <div className="cards__wrapper">
+                            {croppedArticles.length > 0 &&
+                                croppedArticles.map(item =>
+                                    viewType === "list"
+                                        ? (
+                                            <ArticleCardLarge
+                                                key={item.id}
+                                                articleId={item.id}
+                                                image={item.img}
+                                                header={item.header}
+                                                content={item.content}
+                                            />
+                                        )
+                                        : (
+                                            <ArticleCardMiddle
+                                                key={item.id}
+                                                articleId={item.id}
+                                                image={item.img}
+                                                header={item.header}
+                                                content={item.content}
+                                            />
+                                        )
+                                )
+                            }
+                            {filteredArticles.length >= numberOfElements && (
+                                <SpinnerLoader/>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

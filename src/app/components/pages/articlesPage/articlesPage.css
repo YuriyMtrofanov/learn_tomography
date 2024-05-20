@@ -15,7 +15,7 @@
 
 .articles-page__container {
     display: flex;
-    min-width: 80vw;
+    width: 80vw;
     min-height: 95vh;
     height: fit-content;
     background-color: rgb(124, 181, 235);
@@ -163,8 +163,20 @@
     /* border: rgb(13, 255, 0) solid; */
 }
 
+.top-panel__icons i:hover {
+    color: rgb(103, 117, 141);
+}
+
 .top-panel__search {
     width: 100%;
     padding: 2px;
+    /* border: rgb(255, 4, 0) solid; */
+}
+
+.cards__wrapper {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    flex-wrap: wrap;
     /* border: rgb(255, 4, 0) solid; */
 }

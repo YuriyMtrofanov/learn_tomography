@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import MainFooter from "../../ui/mainFooter";
 import Button from "../../ui/button/button";
 import { articlesList } from "../../../mocData/articles";
@@ -23,14 +23,28 @@ const ArticlePage = () => {
                 >
                     <h1><i className="bi bi-caret-left"></i></h1>
                 </Button>
-                <div className="article-page__body">
-                    <div className="articles-page__content">
-                        <h1>Article id {article.id} </h1>
-                        <h1>{article.header} </h1>
-                        <h3>{article.content}</h3>
+                <div className="header__wrapper">
+                    <div className="header-image">
                         <img src={article.img} alt="image" />
+                        <div className="article-title">
+                            <div className="article-title__content">
+                                <h1>{article.header}</h1>
+                            </div>
+                        </div>
                     </div>
+                    <Button
+                        className="user-profile__edit-button"
+                        type="button"
+                    >
+                        <NavLink className="user-profile__label" to={`/learn/${articleId}/edit`}>
+                            <h2><i className="bi bi-gear"></i></h2>
+                        </NavLink>
+                    </Button>
                 </div>
+                <div className="article-page__content">
+                    {article.content}
+                </div>
+                {/* </div> */}
             </div>
             <MainFooter/>
         </div>

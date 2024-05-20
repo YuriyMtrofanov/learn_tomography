@@ -18,6 +18,7 @@ import LogoutPage from "./components/pages/logoutPage";
 import FavoritesPage from "./components/pages/favoritesPage";
 import UserEditPage from "./components/pages/userEditPage";
 import ArticlePage from "./components/pages/articlePage/articlePage";
+import ArticleEditPage from "./components/pages/articleEditPage";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                     <Route index element={<ArticlesPage/>}/>
                     <Route path=":articleId" element={<Outlet/>}>
                         <Route index element={<ArticlePage/>}/>
+                        <Route path="edit" element={<ArticleEditPage/>}/>
                     </Route>
                 </Route>
                 <Route path="tests" element={<TestsPage/>}/>
