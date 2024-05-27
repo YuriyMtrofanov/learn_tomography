@@ -20,7 +20,7 @@ const ArticleCardMiddle = ({ articleId, image, header, content }) => {
                         {header}
                     </div>
                     <div className="article-card-md__content">
-                        {content}
+                        {`${content.slice(0, 300)}...`}
                     </div>
                     <div className="article-card-md__footer">
                         <Button

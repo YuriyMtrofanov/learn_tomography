@@ -4,7 +4,7 @@
     flex-direction: column;
     font-size: medium;
     align-items: center;
-    border: rgb(2, 255, 19) solid;
+    /* border: rgb(2, 255, 19) solid; */
 }
 
 .article-page__container {
@@ -16,14 +16,14 @@
     height: 95vh;
     background-color: rgb(124, 181, 235);
     box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.8);
-    border: rgb(210, 196, 0) solid;
+    /* border: rgb(210, 196, 0) solid; */
 }
 
 .header__wrapper {
     position: relative;
     width: 100%;
     height: max-content;
-    border: rgb(210, 0, 32) solid;
+    /* border: rgb(210, 0, 32) solid; */
 }
 
 .article-title {
@@ -58,7 +58,7 @@
     width: 100%;
     overflow: hidden;
     height: 50vh;
-    border: rgb(1, 117, 13) solid;
+    /* border: rgb(1, 117, 13) solid; */
 }
 
 .header-image img {
@@ -87,4 +87,11 @@
 .article-page__back-button:hover {
     background-color: rgb(35, 97, 154);
     color: rgb(212, 212, 212);
+}
+
+.article-page__content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    font-size: large;
 }

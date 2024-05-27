@@ -20,7 +20,7 @@ const ArticleCardLarge = ({ articleId, image, header, content }) => {
                         {header}
                     </div>
                     <div className="article-card-lg__content">
-                        {content}
+                        {`${content.slice(0, 500)}...`}
                     </div>
                     <div className="article-card-lg__footer">
                         <Button
