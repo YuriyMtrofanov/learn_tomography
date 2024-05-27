@@ -30,7 +30,6 @@ body {
 
 .main__container {
   display: flex;
-  position: static;
   min-height: 150vh;
   width: 80%;
   background-color: rgb(124, 181, 235);
