@@ -12,7 +12,6 @@ http.interceptors.request.use(
     async function (config) {
         const refreshToken = localStorageService.getRefreshToken();
         const expiresDate = localStorageService.getExpiresDateToken();
-        console.log("interceptors config", config);
         if (configFile.isFirebase) {
             const containSlash = /\/$/gi.test(config.url);
             config.url =
