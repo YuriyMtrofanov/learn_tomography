@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import TextField from "../inputs/textField";
 import Button from "../../ui/button/button";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../../store/users";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const initialData = {
         email: "",
         password: ""
@@ -17,10 +22,8 @@ const LoginForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const outputDta = {
-            ...inputData
-        };
-        console.log("Output-Data", outputDta);
+        dispatch(logIn(inputData));
+        navigate("/learn");
     };
 
     return (

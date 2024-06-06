@@ -5,12 +5,12 @@ import Button from "../../ui/button/button";
 import RadioField from "../inputs/radioField/radioField";
 import SelectField from "../inputs/selectField/selectField";
 import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../../store/users";
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const initialData = {
         email: "",
         password: "",
@@ -35,11 +35,8 @@ const RegisterForm = () => {
         event.preventDefault();
         // const isValid = validate();
         // if (!isValid) return;
-        const outputDta = {
-            ...inputData
-        };
-        dispatch(signUp(outputDta));
-        // navigate("/learn");
+        dispatch(signUp(inputData));
+        navigate("/learn");
     };
 
     return (

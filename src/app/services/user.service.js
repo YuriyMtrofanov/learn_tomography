@@ -10,12 +10,15 @@ const userService = {
     },
     getUsersList: async () => {
         const { data } = await httpService.get(userEndpoint);
+        console.log("getUsersList", data);
         return data;
     },
     getCurrentUser: async () => {
         const { data } = await httpService.get(
             userEndpoint + localStorageService.getUserId()
         );
+        console.log("getCurrentUser", data);
+        console.log("getUserId", localStorageService.getUserId());
         return data;
     },
     editUser: async (payload) => {

@@ -97,7 +97,7 @@ const authRequested = createAction("users/authRequested");
 
 export const signUp = (payload) => async (dispatch) => {
     dispatch(authRequested());
-    const { email, password, ...rest } = payload;
+    const { password, ...rest } = payload;
     try {
         const data = await authService.register(payload); // регистрируем пользователя, в ответ получаем рег. данные в т.ч и id полользователя
         userService.createUser({ id: data.localId, ...rest }); // пушим данные пользователя по эндпойнту id полользователя. Также добавляем этот id в объект пользователя
@@ -105,16 +105,6 @@ export const signUp = (payload) => async (dispatch) => {
         dispatch(authRequestSucceeded({ userId: data.localId }));
     } catch (error) {
         dispatch(authRequestFailed(error.message));
-    }
-};
-
-export const loadUsersList = () => async (dispatch) => {
-    dispatch(usersRequested());
-    try {
-        const { content } = await userService.getUsersList();
-        dispatch(usersReceived(content));
-    } catch (error) {
-        dispatch(usersRequestFailed(error.message));
     }
 };
 
@@ -133,6 +123,17 @@ export const logIn = (payload) => async (dispatch) => {
 export const logOut = () => async (dispatch) => {
     localStorageService.removeAuthData();
     dispatch(userLoggedOut());
+};
+
+export const loadUsersList = () => async (dispatch) => {
+    dispatch(usersRequested());
+    try {
+        const { content } = await userService.getUsersList();
+        console.log("loadUsersList", content);
+        dispatch(usersReceived(content));
+    } catch (error) {
+        dispatch(usersRequestFailed(error.message));
+    }
 };
 
 export const editUser = (payload) => async (dispatch) => {
@@ -168,6 +169,8 @@ export const getDataStatus = () => (state) => state.users.dataLoaded;
 export const getUsersLoadingStatus = () => (state) => state.users.isLoading;
 export const getCurrentUserId = () => (state) => state.users.auth.userId;
 export const getCurrentUser = () => (state) => {
+    console.log("state.users.entities", state.users.entities);
+    console.log("state.users.auth", state.users.auth);
     if (state.users.entities && state.users.auth) {
         return state.users.entities.find(user => user.id === state.users.auth.userId);
     }

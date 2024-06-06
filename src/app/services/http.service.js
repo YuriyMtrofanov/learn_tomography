@@ -16,6 +16,7 @@ http.interceptors.request.use(
             const containSlash = /\/$/gi.test(config.url);
             config.url =
                 (containSlash ? config.url.slice(0, -1) : config.url) + ".json";
+            console.log("config.url", config.url);
             // проверка срока службы access_token-а и запрос на его обновление
             if (refreshToken && expiresDate < Date.now()) {
                 const data = await authService.refresh({

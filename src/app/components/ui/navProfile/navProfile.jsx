@@ -1,19 +1,20 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import NavDropdownList from "../navDropdownList";
 import "./navProfile.css";
+import { getCurrentUser } from "../../../store/users";
 
 const NavProfile = () => {
     const options = [
         { name: "users", value: "Профиль", path: "/users" },
         { name: "logout", value: "Выйти", path: "/logout" }
     ];
-    const currentUser = { id: "1", name: "Current User" };
-    // const currentUser = useSelector(getCurrentUser());
-
+    const currentUser = useSelector(getCurrentUser());
     const [active, setActive] = useState(false);
     const handleActive = () => {
         setActive(prevState => !prevState);
     };
+    if (!currentUser) return "Loading...";
     return (
         <>
             <div
@@ -28,7 +29,7 @@ const NavProfile = () => {
                         />
                     </div>
                     <div className="nav-profile__label">
-                        {currentUser.name}
+                        {`${currentUser.firstName} ${currentUser.lastName}`}
                     </div>
                 </div>
                 <NavDropdownList
