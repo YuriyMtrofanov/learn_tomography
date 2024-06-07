@@ -129,7 +129,6 @@ export const loadUsersList = () => async (dispatch) => {
     dispatch(usersRequested());
     try {
         const { content } = await userService.getUsersList();
-        console.log("loadUsersList", content);
         dispatch(usersReceived(content));
     } catch (error) {
         dispatch(usersRequestFailed(error.message));
@@ -169,8 +168,8 @@ export const getDataStatus = () => (state) => state.users.dataLoaded;
 export const getUsersLoadingStatus = () => (state) => state.users.isLoading;
 export const getCurrentUserId = () => (state) => state.users.auth.userId;
 export const getCurrentUser = () => (state) => {
-    console.log("state.users.entities", state.users.entities);
-    console.log("state.users.auth", state.users.auth);
+    // console.log("state.users.entities", state.users.entities);
+    // console.log("state.users.auth", state.users.auth);
     if (state.users.entities && state.users.auth) {
         return state.users.entities.find(user => user.id === state.users.auth.userId);
     }

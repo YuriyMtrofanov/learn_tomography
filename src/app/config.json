@@ -1,7 +1,6 @@
 {
     "apiEndpoint": "https://learn-tomography-default-rtdb.europe-west1.firebasedatabase.app",
     "authEndpoint": "https://identitytoolkit.googleapis.com/v1",
-    "refreshEndpoint": "https://securetoken.googleapis.com/v1/token?key=",
-    "key": "AIzaSyCWkDmZ4-Tm2scgRH4qMgxKuVbvaog1qmc",
+    "refreshEndpoint": "https://securetoken.googleapis.com/v1",
     "isFirebase": true
 }

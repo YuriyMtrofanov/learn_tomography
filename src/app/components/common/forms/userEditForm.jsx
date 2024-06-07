@@ -3,9 +3,14 @@ import TextField from "../inputs/textField";
 import Button from "../../ui/button/button";
 import RadioField from "../inputs/radioField/radioField";
 import SelectField from "../inputs/selectField/selectField";
-import { currentUser } from "../../../mocData/user";
+import { useDispatch, useSelector } from "react-redux";
+import { editUser, getCurrentUser } from "../../../store/users";
+import { useNavigate } from "react-router-dom";
 
 const UserEditForm = () => {
+    const currentUser = useSelector(getCurrentUser());
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const initialData = { ...currentUser };
     const [inputData, setInputData] = useState(initialData);
     const handleChange = (target) => {
@@ -17,10 +22,8 @@ const UserEditForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const outputDta = {
-            ...inputData
-        };
-        console.log("outputDta", outputDta);
+        dispatch(editUser(inputData));
+        navigate(`/users/${currentUser.id}`);
     };
 
     return (

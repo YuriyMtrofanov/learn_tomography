@@ -16,13 +16,8 @@ http.interceptors.request.use(
             const containSlash = /\/$/gi.test(config.url);
             config.url =
                 (containSlash ? config.url.slice(0, -1) : config.url) + ".json";
-            console.log("config.url", config.url);
-            // проверка срока службы access_token-а и запрос на его обновление
             if (refreshToken && expiresDate < Date.now()) {
-                const data = await authService.refresh({
-                    grant_type: "refresh_token",
-                    refresh_token: refreshToken
-                });
+                const data = await authService.refresh();
                 localStorageService.setTokens({
                     idToken: data.id_token,
                     refreshToken: data.refresh_token,
@@ -30,23 +25,19 @@ http.interceptors.request.use(
                     localId: data.user_id
                 });
             }
-            // const accessToken = localStorageService.getAccessToken();
-            // if (accessToken) {
-            //     config.params = { ...config.params, auth: accessToken };
-            // }
+            const accessToken = localStorageService.getAccessToken();
+            if (accessToken) {
+                config.params = { ...config.params, auth: accessToken };
+            }
         }
         return config;
     }
 );
 
-// Перехват ответа от сервера и отработка ошибок ответов
 http.interceptors.response.use(
     (res) => {
         if (configFile.isFirebase) {
             res.data = { content: transformData(res.data) };
-            // в данном случае мы получаем объект res.data = { data: {{}, {}, {}} }
-            // и мы его приводим к виду res.data = { content: [{}, {}, {}] }
-            // то есть изначально получаем объект data и трансформируем его в массив content
         }
         return res;
     },

@@ -28,7 +28,7 @@
   /* :not(:required) hides these rules from IE9 and below */
   .loading:not(:required) {
     font: 0/0 a;
-    color: transparent;
+    color: rgba(35, 88, 138, 1);
     text-shadow: none;
     background-color: transparent;
     border: 0;
