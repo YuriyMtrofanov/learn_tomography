@@ -37,7 +37,6 @@ function App() {
                     </Route>
                     <Route path="tests" element={<TestsPage/>}/>
                     <Route path="users" element={<Outlet/>}>
-                        {/* <Route index element={<UserPage/>}/> */}
                         <Route path=":userId" element={<Outlet/>}>
                             <Route index element={<UserPage/>}/>
                             <Route path="favorites" element={<FavoritesPage/>}/>

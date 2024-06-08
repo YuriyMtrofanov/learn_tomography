@@ -2,10 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./navBar.css";
 import NavProfile from "../navProfile/navProfile";
+import { useSelector } from "react-redux";
+import { getIsLoggedIn, getUserAccountType } from "../../../store/users";
 
 const NavBar = () => {
-    const isAdmin = true;
-    const isLoggedIn = true;
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const isAdmin = useSelector(getUserAccountType());
 
     return (
         <nav className="nav">
@@ -16,7 +18,7 @@ const NavBar = () => {
                         {/* <NavLink className="nav__link" to="/">Main</NavLink> */}
                         <NavLink className="nav__link" to="/learn">Learn</NavLink>
                         {/* <NavLink className="nav__link" to="/tests">Tests</NavLink> */}
-                        {isAdmin && (
+                        {isAdmin === "admin" && (
                             <NavLink className="nav__link" to="/admin">Admin</NavLink>
                         )}
                     </ul>
