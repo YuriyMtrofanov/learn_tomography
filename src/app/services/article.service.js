@@ -8,18 +8,15 @@ const articleService = {
         return data;
     },
     create: async (payload) => {
-        const { data } = await httpService.post(
-            articleEndpoint,
-            payload
-        );
+        const { data } = await httpService.put(articleEndpoint + payload.id, payload);
         return data;
     },
-    edit: async (articleId, payload) => {
-        const { data } = await httpService.patch(articleEndpoint + articleId, payload);
+    edit: async (payload) => {
+        const { data } = await httpService.patch(articleEndpoint + payload.id, payload);
         return data;
     },
-    delete: async (articleId) => {
-        const { data } = await httpService.delete(articleEndpoint + articleId);
+    delete: async (id) => {
+        const { data } = await httpService.delete(articleEndpoint + id);
         return data;
     }
 };

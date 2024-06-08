@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import usersReducer from "./users";
+import titlesReducer from "./articleTitles";
 
 const rootReducer = combineReducers({
-    users: usersReducer
+    users: usersReducer,
+    titles: titlesReducer
 });
 
 export function createStore() {

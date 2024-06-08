@@ -12,6 +12,10 @@ const userService = {
         const { data } = await httpService.get(userEndpoint);
         return data;
     },
+    editUser: async (payload) => {
+        const { data } = await httpService.patch(userEndpoint + localStorageService.getCurrentUserId(), payload);
+        return data;
+    }
     // getCurrentUser: async () => {
     //     const { data } = await httpService.get(
     //         userEndpoint + localStorageService.getUserId()
@@ -20,14 +24,10 @@ const userService = {
     //     console.log("getUserId", localStorageService.getUserId());
     //     return data;
     // },
-    editUser: async (payload) => {
-        const { data } = await httpService.patch(userEndpoint + localStorageService.getCurrentUserId(), payload);
-        return data;
-    },
-    deleteUser: async (id) => {
-        const URL = `${userEndpoint}/${id}.json`;
-        const { data } = await httpService.delete(URL);
-        return data;
-    }
+    // deleteUser: async (id) => {
+    //     const URL = `${userEndpoint}/${id}.json`;
+    //     const { data } = await httpService.delete(URL);
+    //     return data;
+    // }
 };
 export default userService;
