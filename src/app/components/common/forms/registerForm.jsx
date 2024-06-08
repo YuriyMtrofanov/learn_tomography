@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+// import { validator } from "../../utils/validator";
 import TextField from "../inputs/textField";
 import Button from "../../ui/button/button";
 import RadioField from "../inputs/radioField/radioField";
 import SelectField from "../inputs/selectField/selectField";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../../../store/users";
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const initialData = {
         email: "",
         password: "",
@@ -27,10 +33,10 @@ const RegisterForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const outputDta = {
-            ...inputData
-        };
-        console.log("outputDta", outputDta);
+        // const isValid = validate();
+        // if (!isValid) return;
+        dispatch(signUp(inputData));
+        navigate("/learn");
     };
 
     return (

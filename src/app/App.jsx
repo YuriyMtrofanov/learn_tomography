@@ -19,34 +19,37 @@ import FavoritesPage from "./components/pages/favoritesPage";
 import UserEditPage from "./components/pages/userEditPage";
 import ArticlePage from "./components/pages/articlePage/articlePage";
 import ArticleEditPage from "./components/pages/articleEditPage";
+import AppLoader from "./components/ui/HOC/appLoader";
 
 function App() {
     return (
         <div className="main">
-            <NavBar/>
-            <Routes>
-                <Route index element={<MainPage/>}/>
-                <Route path="learn" element={<Outlet/>}>
-                    <Route index element={<ArticlesPage/>}/>
-                    <Route path=":articleId" element={<Outlet/>}>
-                        <Route index element={<ArticlePage/>}/>
-                        <Route path="edit" element={<ArticleEditPage/>}/>
+            <AppLoader>
+                <NavBar/>
+                <Routes>
+                    <Route index element={<MainPage/>}/>
+                    <Route path="learn" element={<Outlet/>}>
+                        <Route index element={<ArticlesPage/>}/>
+                        <Route path=":articleId" element={<Outlet/>}>
+                            <Route index element={<ArticlePage/>}/>
+                            <Route path="edit" element={<ArticleEditPage/>}/>
+                        </Route>
                     </Route>
-                </Route>
-                <Route path="tests" element={<TestsPage/>}/>
-                <Route path="users" element={<Outlet/>}>
-                    {/* <Route index element={<UserPage/>}/> */}
-                    <Route path=":userId" element={<Outlet/>}>
-                        <Route index element={<UserPage/>}/>
-                        <Route path="favorites" element={<FavoritesPage/>}/>
-                        <Route path="edit" element={<UserEditPage/>}/>
+                    <Route path="tests" element={<TestsPage/>}/>
+                    <Route path="users" element={<Outlet/>}>
+                        {/* <Route index element={<UserPage/>}/> */}
+                        <Route path=":userId" element={<Outlet/>}>
+                            <Route index element={<UserPage/>}/>
+                            <Route path="favorites" element={<FavoritesPage/>}/>
+                            <Route path="edit" element={<UserEditPage/>}/>
+                        </Route>
                     </Route>
-                </Route>
-                <Route path="admin" element={<AdminPage/>}/>
-                <Route path="login" element={<LoginPage/>}/>
-                <Route path="logout" element={<LogoutPage/>}/>
-                <Route path="*" element={<Navigate to="/login"/>}/>
-            </Routes>
+                    <Route path="admin" element={<AdminPage/>}/>
+                    <Route path="login" element={<LoginPage/>}/>
+                    <Route path="logout" element={<LogoutPage/>}/>
+                    <Route path="*" element={<Navigate to="/login"/>}/>
+                </Routes>
+            </AppLoader>
         </div>
     );
 };

@@ -1,19 +1,16 @@
 import React, { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-// import { logOut } from "../store/users";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logOut } from "../../../store/users";
 
 const LogoutPage = () => {
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     useEffect(() => {
-        // dispatch(logOut());
-        // navigate("/login");
-        console.log("logout");
+        dispatch(logOut());
+        navigate("/login");
     }, []);
-    return (
-        <></>
-    );
+    return <h1>Log out</h1>;
 };
 
 export default LogoutPage;

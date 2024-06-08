@@ -8,6 +8,7 @@
     background-color: rgb(46, 117, 183);
     color: beige;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .submit-button:hover {

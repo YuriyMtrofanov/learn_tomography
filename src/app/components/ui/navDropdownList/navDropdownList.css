@@ -11,6 +11,8 @@
 
 .nav-dropdown__container {
     position: absolute;
+    right: 0;
+    top: 5vh;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -36,13 +38,15 @@
     align-items: center;
     padding: 5px;
     min-height: 4vh;
+    color: rgb(35, 88, 138);
+    background-color: rgb(186, 220, 251);
     text-decoration: none;
-    background-color: rgb(255, 255, 255);
-    border: rgb(161, 165, 170) solid 1px;
+    border: rgb(35, 88, 138) solid 1px;
     /* border: rgb(1, 216, 15) solid; */
 }
 
 .nav-dropdown__item:hover {
-    color: rgb(67, 72, 78);
-    background-color: rgb(222, 222, 222);
+    color: rgb(15, 60, 101);
+    background-color: rgb(156, 195, 233);
+    font-weight: 600;
 }
