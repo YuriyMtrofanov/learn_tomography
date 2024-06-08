@@ -4,7 +4,7 @@
     flex-direction: column;
     font-size: medium;
     align-items: center;
-    border: rgb(2, 255, 19) solid;
+    /* border: rgb(2, 255, 19) solid; */
 }
 
 .admin-page__container {
@@ -14,21 +14,16 @@
     height: fit-content;
     background-color: rgb(124, 181, 235);
     box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.5);
-    border: rgb(210, 196, 0) solid;
-}
-
-.admin-page__content {
-    display: flex;
-    width: 100%;
-    border: rgb(0, 210, 7) solid;
+    /* border: rgb(210, 196, 0) solid; */
 }
 
 .admin-page__body {
     display: flex;
+    flex-direction: column;
     width: 100%;
     margin: 5.5vh .5vh .5vh .5vh;
     background-color: rgb(188, 222, 254);
-    border: rgb(200, 0, 210) solid;
+    /* border: rgb(200, 0, 210) solid; */
 }
 
 .admin-page__title {
@@ -94,7 +89,7 @@
 
 .article-title__delete {
     height: 100%;
-    min-width: 5vw;
+    min-width: 10vw;
     border: none;
     font-size: medium;
     /* margin: 5px; */
@@ -109,9 +104,66 @@
 .article-title__delete:hover {
     background-color: rgb(70, 5, 22);
     color: rgb(212, 212, 212);
+    scale: 1.1;
     /* transition: 0.2s; */
 }
 
 .article-title__form {
     padding: 3px;
+}
+
+
+
+.admin-page__articles {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    background-color: rgb(227, 241, 255);
+    border: rgb(46, 117, 183) solid 2px;
+    border-radius: 5px;
+}
+
+.articles__button {
+    height: 4vh;
+    min-width: 15vw;
+    border: none;
+    font-size: medium;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(46, 117, 183);
+    color: beige;
+    transition: 0.2s;
+    cursor: pointer;
+    /* border: rgb(210, 28, 0) solid; */
+}
+
+.articles__button:hover {
+    background-color: rgb(35, 97, 154);
+    color: rgb(212, 212, 212);
+    /* transition: 0.2s; */
+}
+
+.articles-list {
+    width: 100%;
+    height: fit-content;
+    max-height: 100vh;
+    padding: 8px;
+    color: rgb(46, 117, 183);
+}
+
+.articles-list .hidden{
+    visibility: hidden;
+}
+
+.articles-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.5vh;
+    width: 100%;
+    padding: 5px;
+    margin: 2px;
+    color: rgb(46, 117, 183);
+    border: rgb(46, 117, 183) solid 1px;
+    border-radius: 5px;
 }

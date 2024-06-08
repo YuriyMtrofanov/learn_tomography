@@ -77,7 +77,7 @@ export const createTitle = (payload) => async (dispatch) => {
     }
 };
 
-export const editATitle = (payload) => async (dispatch) => {
+export const editTitle = (payload) => async (dispatch) => {
     dispatch(titleEditRequested());
     try {
         const { content } = await articleTitlesService.edit(payload);
