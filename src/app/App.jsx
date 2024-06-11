@@ -20,6 +20,7 @@ import UserEditPage from "./components/pages/userEditPage";
 import ArticlePage from "./components/pages/articlePage/articlePage";
 import ArticleEditPage from "./components/pages/articleEditPage";
 import AppLoader from "./components/ui/HOC/appLoader";
+import ArticleCreatePage from "./components/pages/createArticlePage/articleCreatePage";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                     <Route index element={<MainPage/>}/>
                     <Route path="learn" element={<Outlet/>}>
                         <Route index element={<ArticlesPage/>}/>
+                        <Route path="create" element={<ArticleCreatePage/>}/>
                         <Route path=":articleId" element={<Outlet/>}>
                             <Route index element={<ArticlePage/>}/>
                             <Route path="edit" element={<ArticleEditPage/>}/>

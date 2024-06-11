@@ -9,6 +9,7 @@ const SelectField = ({ name, label, value, defaultOption, options, onChange }) =
             value: target.value
         });
     };
+    console.log("options", options);
     const optionsArray =
         !Array.isArray(options) && typeof options === "object"
             ? Object.values(options)
@@ -33,7 +34,7 @@ const SelectField = ({ name, label, value, defaultOption, options, onChange }) =
                     <option disabled value="" className="select-field__option">
                         {defaultOption}
                     </option>
-                    {optionsArray.length > 0 &&
+                    {optionsArray && optionsArray.length > 0 &&
                         optionsArray.map(option => (
                             <option key={option.value} value={option.value}>
                                 {option.name}

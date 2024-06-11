@@ -1,0 +1,27 @@
+.create-article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    align-items: center;
+    border: rgb(2, 255, 19) solid;
+}
+
+.create-article__container {
+    display: flex;
+    width: 80vw;
+    min-height: 95vh;
+    height: fit-content;
+    background-color: rgb(124, 181, 235);
+    box-shadow: 0 3px 15px 3px rgba(0, 0, 0, 0.5);
+    border: rgb(210, 196, 0) solid;
+}
+
+.create-article__body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5.5vh .5vh .5vh .5vh;
+    background-color: rgb(188, 222, 254);
+    border: rgb(200, 0, 210) solid;
+}
