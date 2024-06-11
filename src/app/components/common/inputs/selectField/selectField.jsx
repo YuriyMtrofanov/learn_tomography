@@ -9,7 +9,6 @@ const SelectField = ({ name, label, value, defaultOption, options, onChange }) =
             value: target.value
         });
     };
-    console.log("options", options);
     const optionsArray =
         !Array.isArray(options) && typeof options === "object"
             ? Object.values(options)

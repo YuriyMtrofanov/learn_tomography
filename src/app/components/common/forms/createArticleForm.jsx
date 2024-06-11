@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import {
-    // useDispatch,
+    useDispatch,
     useSelector
 } from "react-redux";
 import { getCurrentUserId } from "../../../store/users";
 import { getTitlesList } from "../../../store/articleTitles";
 import { nanoid } from "@reduxjs/toolkit";
-// import { createArticle } from "../../../store/articles";
+import { createArticle } from "../../../store/articles";
 // import { useNavigate } from "react-router-dom";
 import TextField from "../inputs/textField";
 import SelectField from "../inputs/selectField/selectField";
 import Button from "../../ui/button/button";
+import TextAreaField from "../inputs/textAreaField/textAreaField";
 
 const CreateArticleForm = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const navigate = useNavigate();
     const initialData = {
         id: "",
@@ -52,7 +53,7 @@ const CreateArticleForm = () => {
             title: inputData.title
         };
         console.log("outputData", outputData);
-        // dispatch(createArticle(inputData));
+        dispatch(createArticle(outputData));
         // navigate(`/learn/${outputData.id}`);
     };
     return (
@@ -76,6 +77,12 @@ const CreateArticleForm = () => {
                 name="img"
                 label="Ссылка на фото"
                 placeholder="https://..."
+                onChange={handleChange}
+            />
+            <TextAreaField
+                name="content"
+                label="Текст статьи"
+                placeholder="Введите текст статьи..."
                 onChange={handleChange}
             />
             <Button
