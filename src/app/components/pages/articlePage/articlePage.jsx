@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import MainFooter from "../../ui/mainFooter";
 import Button from "../../ui/button/button";
-// import { articlesList } from "../../../mocData/articles";
 import "./articlePage.css";
 import { useSelector } from "react-redux";
 import { getArticleById } from "../../../store/articles";
@@ -10,9 +9,6 @@ import { getArticleById } from "../../../store/articles";
 const ArticlePage = () => {
     const { articleId } = useParams();
     const article = useSelector(getArticleById(articleId));
-
-    // const currentArticle = articlesList.find(item => item.id === articleId);
-    // const [article] = useState(currentArticle);
     const navigate = useNavigate();
     const handleBack = (data) => {
         navigate(data ? `${data}` : -1);
@@ -48,7 +44,6 @@ const ArticlePage = () => {
                 <div className="article-page__content">
                     {article.content}
                 </div>
-                {/* </div> */}
             </div>
             <MainFooter/>
         </div>
