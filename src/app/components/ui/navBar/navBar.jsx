@@ -17,6 +17,7 @@ const NavBar = () => {
                         <li className="logo">Logo</li>
                         {/* <NavLink className="nav__link" to="/">Main</NavLink> */}
                         <NavLink className="nav__link" to="/learn">Learn</NavLink>
+                        {/* {isLoggedIn && <NavLink className="nav__link" to="/learn/create">Create</NavLink>} */}
                         {/* <NavLink className="nav__link" to="/tests">Tests</NavLink> */}
                         {isAdmin === "admin" && (
                             <NavLink className="nav__link" to="/admin">Admin</NavLink>

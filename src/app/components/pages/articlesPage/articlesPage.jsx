@@ -1,39 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "./articlesPage.css";
 import Button from "../../ui/button/button";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import MainFooter from "../../ui/mainFooter";
-import { articlesList } from "../../../mocData/articles";
-import { articleTitles } from "../../../mocData/articleTitles";
+// import { articlesList } from "../../../mocData/articles";
+// import { articleTitles } from "../../../mocData/articleTitles";
 import paginate from "../../../utils/paginate";
 import ArticleCardLarge from "../../common/cards/articleCardLarge";
 import ArticleCardMiddle from "../../common/cards/articleCardMiddle/articleCardMiddle";
 import SearchForm from "../../common/forms/searchForm";
 import SpinnerLoader from "../../ui/spinnerLoader/spinnerLoader";
+import { useSelector } from "react-redux";
+import { getIsLoggedIn } from "../../../store/users";
+import { getArticlesList } from "../../../store/articles";
+import { getTitlesList } from "../../../store/articleTitles";
 
 const ArticlesPage = () => {
     const navigate = useNavigate();
-    const handleBack = (data) => {
-        navigate(data ? `${data}` : -1);
-    };
-    const articles = articlesList;
-    const [articleTitle, setArticleTitle] = useState();
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    const articles = useSelector(getArticlesList());
+    const articleTitles = useSelector(getTitlesList());
+    const [selectedTitle, setSelectedTitle] = useState();
     const [inputData, setInputData] = useState("");
     const handleSearch = (data) => {
-        setArticleTitle(); // нужно ли обнулять поиск по теме статьи при использовании поисковой строки?
+        setSelectedTitle(); // нужно ли обнулять поиск по теме статьи при использовании поисковой строки?
         setInputData(data.toString());
     };
+
     const handleSort = (data) => {
         setInputData("");
-        setArticleTitle(data);
+        setSelectedTitle(data);
+    };
+
+    const handleBack = (data) => {
+        navigate(data ? `${data}` : -1);
     };
 
     function filterArticles(data) {
         let filteredArticles = data;
         if (inputData) {
             filteredArticles = data.filter(item => item.content.toLowerCase().includes(inputData.toLowerCase()));
-        } else if (articleTitle) {
-            filteredArticles = data.filter(item => item.title === articleTitle);
+        } else if (selectedTitle) {
+            filteredArticles = data.filter(item => item.title === selectedTitle);
         };
         return filteredArticles;
     };
@@ -49,7 +57,7 @@ const ArticlesPage = () => {
     const [numberOfElements, setNumberOfElements] = useState(step);
     const handleReset = () => {
         setNumberOfElements(step);
-        setArticleTitle();
+        setSelectedTitle();
     };
 
     useEffect(() => {
@@ -87,7 +95,7 @@ const ArticlesPage = () => {
                                     key={item.id}
                                     onClick={() => handleSort(item.id)}
                                 >
-                                    {item.label}
+                                    {item.title}
                                 </li>
                             ))}
                             <Button
@@ -113,6 +121,16 @@ const ArticlesPage = () => {
                                     onSearch={handleSearch}
                                 />
                             </div>
+                            {isLoggedIn &&
+                                (<div className="top-panel__create">
+                                    <Button
+                                        className="top-panel__button"
+                                        type="button"
+                                    >
+                                        <NavLink className="top-panel__link" to="/learn/create">Добавить статью</NavLink>
+                                    </Button>
+                                </div>)
+                            }
                         </div>
                         <div className="cards__wrapper">
                             {croppedArticles.length > 0 &&

@@ -34,6 +34,7 @@ const UserPage = () => {
                                     <li><NavLink className="side-bar__item" to="/tests">Обучение</NavLink></li>
                                     <li><NavLink className="side-bar__item" to={`/users/${currentUser.id}/favorites`}>Избранное</NavLink></li>
                                     <li><NavLink className="side-bar__item" to={`/users/${currentUser.id}/edit`}>Редактировать</NavLink></li>
+                                    <li><NavLink className="side-bar__item" to="/learn/create">Добавить статью</NavLink></li>
                                 </ul>
                             </div>
                             <div className="user-page__content">
